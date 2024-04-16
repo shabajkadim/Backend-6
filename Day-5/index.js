@@ -4,7 +4,7 @@ const app=express()
 app.use(express.json())
 
 app.get('/',(req,res)=>{
-    res.send("welcome")
+    res.send("working Day-5")
 })
 
 app.post("/register",(req,res)=>{

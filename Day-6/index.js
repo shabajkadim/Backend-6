@@ -3,9 +3,10 @@ import express from "express"
 const app=express()
 app.use(express.json())
 
-const users=[{id:1,name:"virat",email:"virat@123"},
-{id:2,name:"rohit",email:"rohit@123"},
-{id:3,name:"abd",email:"abd@123"}]
+const users=[
+    {id:1,name:"virat",email:"virat@123"},
+    {id:2,name:"rohit",email:"rohit@123"},
+    {id:3,name:"abd",email:"abd@123"}]
 
 app.get('/',((req,res)=>{
     res.send("welcom...");
