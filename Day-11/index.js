@@ -31,8 +31,7 @@ app.get('/get-user',(async(req,res)=>{
         // const user=await userSchema.find({ $and: [ { age:30 }, { name:"virat" } ] })
         // const user=await userSchema.find({ $or: [ { age:25 }, { age:35},{age:40} ] })
         // const user=await userSchema.find({ $nor: [ { age:30 }, { name:"virat" } ] })
-        const user=await userSchema.find({ email: { $type: "string" } })
-
+       const user=await userSchema.find({ email: { $type: "string" } })
 
         res.status(200).json({sucess:true,user:user })
 
