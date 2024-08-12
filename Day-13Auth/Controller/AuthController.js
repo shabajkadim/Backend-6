@@ -92,7 +92,7 @@ export const validUser=async(req,res)=>{
             return res.status(404).json({success:false, message:"Token is expire"})
         }
 
-        const currenTime = Math.floor(Date.now() / 1000); // Get current time in seconds
+        const currenTime = Math.floor(Date.now() / 1000); 
     if (decodedData.exp < currenTime) {
       return res.json({
         success: false,
@@ -114,43 +114,4 @@ export const validUser=async(req,res)=>{
         return res.status(500).json({success:false , error:error})
     }
 }
-
-// export const validUser = async (req, res) => {
-//     try {
-//         const token = req.cookies.token;
-//         console.log(token, "token");
-//         if (!token) {
-//             return res.status(404).json({ success: false, message: "Token not found" });
-//         }
-
-//         const decodedData = await jwt.verify(token, process.env.SECRET_KEY);
-//         console.log(decodedData, "decodedData");
-
-//         if (!decodedData.id) {
-//             return res.status(404).json({ success: false, message: "Token is invalid" });
-//         }
-
-//         // Get current time in seconds
-//         const currentTime = Math.floor(Date.now() / 1000);
-
-//         if (decodedData.exp < currentTime) {
-//             return res.json({
-//                 success: false,
-//                 message: "Token is expired",
-//                 expired: true,
-//             });
-//         }
-
-//         const user = await userSchema.findById(decodedData.id);
-//         console.log(user, "user");
-//         if (!user) {
-//             return res.status(404).json({ success: false, message: "User not found" });
-//         }
-
-//         res.status(200).json({ success: true, user: user });
-//     } catch (error) {
-//         return res.status(500).json({ success: false, error: error.message });
-//     }
-// }
-
 
