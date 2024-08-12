@@ -39,7 +39,8 @@ app.get('/get-product',async(req,res)=>{
         const agregation=[
             {
                 $match:{category:"electronics",price:{$gt:1000} }
-            }
+            },
+            
         ];
         
         const filterProduct=await productSchema.aggregate(agregation)
